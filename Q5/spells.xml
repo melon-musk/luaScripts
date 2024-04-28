@@ -5,6 +5,16 @@
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>
+	<instant group="attack" spellid="300" name="Test Icenado" words="frigo" level="1" mana="1" premium="0" selftarget="1" cooldown="10" groupcooldown="10" needlearn="0" script="attack/icenado.lua">
+        <vocation name="Sorcerer" />
+        <vocation name="Druid" />
+        <vocation name="Paladin" />
+        <vocation name="Knight" />
+        <vocation name="Master Sorcerer" />
+        <vocation name="Elder Druid" />
+        <vocation name="Royal Paladin" />
+        <vocation name="Elite Knight" />
+    </instant>
 	<instant group="attack" spellid="169" name="Apprentice's Strike" words="exori min flam" level="8" mana="6" premium="0" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="2000" groupcooldown="2000" needlearn="0" script="attack/apprentice's_strike.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -113,9 +123,10 @@
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="attack" spellid="121" name="Ice Wave" words="exevo frigo hur" level="18" mana="25" direction="1" cooldown="4000" groupcooldown="2000" needlearn="0" script="attack/ice_wave.lua">
+	<instant group="attack" spellid="121" name="Ice Wave" words="exevo frigo hur" level="1" mana="1" direction="1" cooldown="4000" groupcooldown="2000" needlearn="0" script="attack/ice_wave.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
+		<vocation name="Sorcerer" />
 	</instant>
 	<instant group="attack" spellid="138" name="Ignite" words="utori flam" level="26" mana="30" premium="1" range="3" casterTargetOrDirection="1" aggressive="1" blockwalls="1" cooldown="30000" groupcooldown="2000" needlearn="0" script="attack/ignite.lua">
 		<vocation name="Sorcerer" />
@@ -160,9 +171,10 @@
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
 	</instant>
-	<instant group="attack" secondarygroup="special" spellid="152" name="Strong Ice Strike" words="exori gran frigo" level="80" mana="60" premium="1" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="8000" groupcooldown="2000" secondarygroupcooldown="8000" needlearn="0" script="attack/strong_ice_strike.lua">
+	<instant group="attack" secondarygroup="special" spellid="152" name="Strong Ice Strike" words="exori gran frigo" level="1" mana="60" premium="0" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="8000" groupcooldown="2000" secondarygroupcooldown="8000" needlearn="0" script="attack/strong_ice_strike.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
+		<vocation name="Sorcerer" />
 	</instant>
 	<instant group="attack" spellid="43" name="Strong Ice Wave" words="exevo gran frigo hur" level="40" mana="170" premium="1" direction="1" cooldown="8000" groupcooldown="2000" needlearn="0" script="attack/strong_ice_wave.lua">
 		<vocation name="Druid" />
