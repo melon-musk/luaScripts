@@ -1,0 +1,9 @@
+Module
+  name: game_rohanBox
+  description: testBox
+  author: Rohan
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ rohanBox ]
+  @onLoad: init()
+  @onUnload: terminate()

@@ -1,0 +1,19 @@
+MainWindow
+  id: spelllistWindow
+  !text: tr('RohanBox')
+  size: 550 400
+  @onEscape: toggle()
+
+  Button
+    id: jumpButton
+    !text: tr('Jump')
+    width: 90
+
+  Button
+    id: buttonCancel
+    !text: tr('Close')
+    width: 64
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    @onClick: moveButton()
+
