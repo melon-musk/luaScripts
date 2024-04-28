@@ -1,10 +1,27 @@
 function do_sth_with_PlayerParty(playerId, membername)
-player = Player(playerId)
+local player = Player(playerId)
 local party = player:getParty()
+local members = party:getMembers()
 
-for k,v in pairs(party:getMembers()) do
-if v == Player(membername) then
-party:removeMember(Player(membername))
+for k,v in pairs(members) do
+if v.name == membername then
+party:removeMember(player)
+break
 end
 end
 end
+
+
+
+--[[
+Assumptions: 
+i am assuming getMembers() is such a function that allows us to get memebers from the party
+v.name or player.name is such a property on the members (which is of type player)
+
+Reasoning:
+1) player needs to be local to avoid any conflicts since earlier it was in a global scope.
+2) I make a copy of the memebers since in the loop we're removing members from a part while still iterating over the same party	
+which could lead to some unxpected behaviour
+3) I break from the loop once i find the member i want to remove. Avoids unecessary iterations of the loop once found.
+4) Since I already have a reference to the player in the star of the function i can use that in the function party:removeMember(player)
+]]--

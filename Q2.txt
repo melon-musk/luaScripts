@@ -2,6 +2,23 @@ function printSmallGuildNames(memberCount)
 -- this method is supposed to print names of all guilds that have less than memberCount max members
 local selectGuildQuery = "SELECT name FROM guilds WHERE max_members < %d;"
 local resultId = db.storeQuery(string.format(selectGuildQuery, memberCount))
-local guildName = result.getString(resultId,"name")
-print(guildName)
+
+if resultId then
+    local guildName = result.getString(resultId,"name")
+    repeat
+            local task1 = result.getString(orderQuery, 'task')
+            print(guildName)
+        until not result.next(orderQuery)
+        result.free(orderQuery)
+    
+    else print("No guilds found with memebers less than:",memeberCount)
 end
+end
+
+--[[
+Reasoning: 1) I added a if condition on resultID to check whether we do infact receive
+		some entries from executing the query. This will allow us to take care of the negative case.
+	2) From what I've found out result.getString() takes two parameters.
+	3) We need to iterate through the results in a repeat until loop. A single print will only print 
+	the first entry
+--]]

@@ -4,7 +4,12 @@ end
 
 function onLogout(player)
 if player:getStorageValue(1000) == 1 then
-addEvent(releaseStorage, 1000, player)
+if addEvent(releaseStorage, 1000, player) then return true else return false end
+return false
 end
-return true
-end
+
+--[[
+reasoning:
+1) checking if addEvent successfully creates an event, if true then we can log out else we shouldnt
+2) return false by deafauly since if we fail to meet the storage value requirement we should be allowed to log out
+--]]

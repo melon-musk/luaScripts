@@ -3,6 +3,8 @@ void Game::addItemToPlayer(const std::string & recipient, uint16_t itemId) {
   if (!player) {
     player = new Player(nullptr);
     if (!IOLoginData::loadPlayerByName(player, recipient)) {
+        delete player;
+        player = nullptr;
       return;
     }
   }
@@ -17,4 +19,23 @@ void Game::addItemToPlayer(const std::string & recipient, uint16_t itemId) {
   if (player -> isOffline()) {
     IOLoginData::savePlayer(player);
   }
+  
+  delete player;
+  delete item;
+  player= nullptr;
+  item = nullptr;
+  
+  return;
 }
+
+--[[
+Reasoning:
+Assumptions: I am assuming g_game.getPlayerByName() and  Item::CreateItem(itemId) return nullptr on faliure
+The memory leak occurs once when we fail to fetch login data. Since we're returning here, we want to free up the player memory before
+we exit the function.
+
+The second memory leak is at the end of the function. Since we're done with item and player bye this point in the function, we should free it up.
+
+I set player and item to nullptr since they still maybe be pointing to a memory address. It would seem that it wont matter since were exiting and these
+pointers would be popped off the stack. But in case the function is extended later, it would make sense to do this just in case.
+--]]
